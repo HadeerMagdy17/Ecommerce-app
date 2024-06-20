@@ -1,0 +1,14 @@
+
+    *,
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+}
+a , a:hover{
+    color: #000 !important;
+    text-decoration: none !important;
+}
+nav{
+    background: rgb(141,179,150);
+background: linear-gradient(354deg, rgba(141,179,150,1) 4%, rgba(30,92,51,0.8184523809523809) 42%, rgba(64,187,163,1) 99%);
+}
