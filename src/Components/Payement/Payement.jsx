@@ -7,18 +7,18 @@ import { cartContext } from "../Context/CartContext";
 import toast from "react-hot-toast";
 
 const Payement = () => {
-
-  const [isLoading, setIsLoading] = useState(false);
+  const [isCashLoading, setIsCashLoading] = useState(false);
+  const [isCardLoading, setIsCardLoading] = useState(false);
   const [errMessage, setErrMessage] = useState(null);
   const [succMessage, setSuccMessage] = useState(null);
-  const [paymentMethod, setPaymentMethod] = useState(null); // Add state for payment method
+  const [paymentMethod, setPaymentMethod] = useState(null);
   const { cartId, setNumOfCartItems, setTotalCartPrice, setCartProducts } =
     useContext(cartContext);
   const navigate = useNavigate();
 
-// **********************cash payment*******************************
+  // **********************cash payment*******************************
   const confirmCashpayment = async (values, { resetForm }) => {
-    setIsLoading(true);
+    setIsCashLoading(true);
     setErrMessage(null);
     setSuccMessage(null);
 
@@ -54,11 +54,11 @@ const Payement = () => {
       setErrMessage(error.response.data.message);
       toast.error(error.response.data.message);
     }
-    setIsLoading(false);
+    setIsCashLoading(false);
   };
-// **********************online payment********************************
+  // **********************online payment********************************
   const confirmCardpayment = async (values, { resetForm }) => {
-    setIsLoading(true);
+    setIsCardLoading(true);
     setErrMessage(null);
     setSuccMessage(null);
 
@@ -76,15 +76,15 @@ const Payement = () => {
         payload,
         {
           headers: { token: localStorage.getItem("token") },
-          params:{url: `http://localhost:${window.location.port}`}
+          params: { url: `http://localhost:${window.location.port}` },
         }
       );
-      window.open(data.session.url,"_blank")
+      window.open(data.session.url, "_blank");
     } catch (error) {
       setErrMessage(error.response.data.message);
       toast.error(error.response.data.message);
     }
-    setIsLoading(false);
+    setIsCardLoading(false);
   };
 
   const handleSubmit = (values, formikHelpers) => {
@@ -124,11 +124,11 @@ const Payement = () => {
 
   return (
     <div className="container pt-5">
-      <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+      <section className="vh-100">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
-              <div className="card text-black" style={{ borderRadius: "25px" }}>
+              <div className="card shadow  text-black" style={{ borderRadius: "25px" }}>
                 <div className="card-body px-md-5 ">
                   <div className="row justify-content-center">
                     {succMessage ? (
@@ -173,7 +173,7 @@ const Payement = () => {
                               Phone
                             </label>
                             {formikObj.errors.phone &&
-                            formikObj.touched.phone ? (
+                              formikObj.touched.phone ? (
                               <div className="alert alert-danger">
                                 {formikObj.errors.phone}
                               </div>
@@ -237,7 +237,7 @@ const Payement = () => {
                               Details
                             </label>
                             {formikObj.errors.details &&
-                            formikObj.touched.details ? (
+                              formikObj.touched.details ? (
                               <div className="alert alert-danger">
                                 {formikObj.errors.details}
                               </div>
@@ -262,7 +262,7 @@ const Payement = () => {
                             data-mdb-ripple-init
                             className="btn btn-primary btn-lg"
                           >
-                            {isLoading ? (
+                            {isCashLoading ? (
                               <Discuss
                                 visible={true}
                                 height="40"
@@ -291,7 +291,7 @@ const Payement = () => {
                             data-mdb-ripple-init
                             className="btn btn-success btn-lg"
                           >
-                            {isLoading ? (
+                            {isCardLoading ? (
                               <Discuss
                                 visible={true}
                                 height="40"
@@ -299,9 +299,10 @@ const Payement = () => {
                                 ariaLabel="discuss-loading"
                                 wrapperStyle={{}}
                                 wrapperClass="discuss-wrapper"
+                                color='#eee'
                               />
                             ) : (
-                              "Confirm online Card Payment"
+                              "Confirm Online Payment"
                             )}
                           </button>
                         </div>

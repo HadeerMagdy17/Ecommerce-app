@@ -75,11 +75,11 @@ const Register = () => {
   // *******end formic*******
   return (
     <div>
-      <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+      <section className="vh-100" >
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
-              <div className="card text-black" style={{ borderRadius: "25px" }}>
+              <div className="card shadow  text-black" style={{ borderRadius: "25px" }}>
                 <div className="card-body px-md-5 ">
                   <div className="row justify-content-center">
                     {succMessage ? (

@@ -58,7 +58,7 @@ const AllOrders = () => {
           {userOrders?.map((order, idx) => {
             return (
               <div key={idx} className="col-md-6">
-                <div className="order bg-info my-3 p-3 rounded">
+                <div className="order bg-success text-white bg-gradient my-3 p-5 rounded">
                   {/* {order.cartItems?.map((item,index)=>{
                 return <div>
                     <h5>Count: {item.count}</h5>
@@ -66,12 +66,12 @@ const AllOrders = () => {
                 </div>
                 })} */}
                   <p>
-                    order sent to user with phone :{" "}
+                    Order sent to user with phone :
                     {order.shippingAddress.phone}
-                    <br /> with details : {order.shippingAddress.details}
+                    <br /><br /> with details : {order.shippingAddress.details}
                     at {order.shippingAddress.city}
-                    <br /> payment method : {order.paymentMethodType}
-                    <br /> Order Total Price : {order.totalOrderPrice}
+                    <br /> <br /> payment method : {order.paymentMethodType}
+                    <br /><br /> Order Total Price : {order.totalOrderPrice}
                   </p>
                 </div>
               </div>

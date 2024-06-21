@@ -67,11 +67,11 @@ const Login = () => {
   // *******end formic*******
   return (
     <div>
-      <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+      <section className="vh-100">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
-              <div className="card text-black" style={{ borderRadius: "25px" }}>
+              <div className="card text-black shadow" style={{ borderRadius: "25px" }}>
                 <div className="card-body px-md-5 ">
                   <div className="row justify-content-center">
                     {succMessage ? (
@@ -86,7 +86,7 @@ const Login = () => {
                       ""
                     )}
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                      <p className="text-center h3 fw-bold mb-3 mx-1 mx-md-4 mt-2">
+                      <p className="text-center h3 fw-bold mt-5 mb-4 mx-1 mx-md-4 mt-2">
                         Login
                       </p>
                       <form

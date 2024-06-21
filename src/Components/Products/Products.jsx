@@ -66,7 +66,7 @@ const Products = () => {
                 <title>All Products</title>
             </Helmet>
       {loading ? (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+        <div style={{ backgroundColor:"#eee",display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
           <BallTriangle
             height={100}
             width={100}
