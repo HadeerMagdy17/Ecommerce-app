@@ -2,7 +2,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { Discuss } from "react-loader-spinner";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate ,Link} from "react-router-dom";
 
 const Register = () => {
   const [errMessage, setErrMessage] = useState(null);
@@ -263,9 +263,16 @@ const Register = () => {
                             
                           </button>
 
-                         
+               
                         </div>
                       </form>
+                      <Link
+                    className="nav-link text-center"
+                    aria-current="page"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                       <img

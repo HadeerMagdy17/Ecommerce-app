@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 
 const ProtectedRoute = ({children}) => {
     const {token }=useContext(authContext)
-    if (token === null || localStorage.getItem("token") == null){
+    if (token === null && localStorage.getItem("token") == null){
         return<Navigate to="/login"/>
 
     }

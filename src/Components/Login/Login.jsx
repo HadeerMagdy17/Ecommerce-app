@@ -2,7 +2,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import React, { useContext, useState } from "react";
 import { Discuss } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../Context/authContext";
 
 const Login = () => {
@@ -175,6 +175,10 @@ const Login = () => {
                             )}
                           </button>
                         </div>
+                        <Link
+                         className="nav-link text-center" to="/register">
+                    Register Now
+                  </Link>
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
